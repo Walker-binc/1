@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1180" viewBox="0 0 720 1180">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111214"/>
+      <stop offset="0.55" stop-color="#1b1b1c"/>
+      <stop offset="1" stop-color="#2f6f63"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <rect width="720" height="1180" fill="#ede5d7"/>
+  <rect x="68" y="48" width="584" height="1084" rx="0" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="96" y="82" width="528" height="1016" fill="none" stroke="#caa45d" stroke-width="3"/>
+  <rect x="218" y="128" width="284" height="284" rx="42" fill="#f8f2e7" transform="rotate(45 360 270)"/>
+  <circle cx="360" cy="252" r="84" fill="#efc2a5"/>
+  <path d="M277 256c5-78 45-118 94-116 54 3 86 46 78 124-54-36-105-37-172-8Z" fill="#24201d"/>
+  <path d="M238 438c26-84 70-132 122-132s96 48 122 132H238Z" fill="#1f2630"/>
+  <path d="M300 438l60-124 60 124H300Z" fill="#fff"/>
+  <rect x="238" y="458" width="244" height="52" rx="0" fill="#f6dd93"/>
+  <text x="360" y="493" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#191919">Ethan Brooks</text>
+  <path d="M238 484h-54l26-22-26-22h54Z" fill="#e2c36f"/>
+  <path d="M482 484h54l-26-22 26-22h-54Z" fill="#e2c36f"/>
+  <text x="360" y="610" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#f4df9c">Trusted Advice</text>
+  <text x="360" y="678" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#f4df9c">Local Service</text>
+  <rect x="190" y="724" width="340" height="46" fill="#272522"/>
+  <text x="360" y="755" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#d8c28a">Sales Engineer · Western Australia</text>
+  <rect x="112" y="828" width="178" height="178" fill="#fff"/>
+  <image x="122" y="838" width="158" height="158" href="data:image/png;base64,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"/>
+  <text x="322" y="878" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#fff">Scan to contact</text>
+  <text x="322" y="918" font-family="Arial, sans-serif" font-size="23" fill="#f4df9c">+61 407 661 204</text>
+  <text x="322" y="954" font-family="Arial, sans-serif" font-size="20" fill="#cfc8b6">ethan.brooks@example.com.au</text>
+  <text x="322" y="990" font-family="Arial, sans-serif" font-size="18" fill="#9fa59d">https://card.company.com/ethan-brooks</text>
+  <text x="360" y="1060" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#caa45d">Company Name Australia</text>
+</svg>

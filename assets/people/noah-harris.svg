@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760">
+  <rect width="640" height="760" fill="#edf4f2"/>
+  <path d="M112 720c24-144 96-226 208-226s184 82 208 226H112Z" fill="#222c34"/>
+  <circle cx="320" cy="252" r="114" fill="#ecc09f"/>
+  <path d="M210 238c20-96 84-144 158-118 50 17 78 64 68 128-72-42-150-42-226-10Z" fill="#201d1a"/>
+  <path d="M238 720 320 510l82 210H238Z" fill="#ffffff"/>
+  <path d="M258 318c42 28 82 28 124 0" fill="none" stroke="#8d4e3f" stroke-width="10" stroke-linecap="round"/>
+  <text x="320" y="690" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#caa45d">SUN</text>
+</svg>

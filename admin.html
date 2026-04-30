@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (location.protocol !== "file:") {
+        document.write('<base href="/">');
+      }
+    </script>
+    <title>Admin | Sales Digital Business Cards</title>
+    <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar compact">
+      <a class="brand" href="./">
+        <img src="./assets/logo.svg" alt="Company Logo" />
+        <span>Sales Digital Cards</span>
+      </a>
+      <nav>
+        <a href="./">Team</a>
+      </nav>
+    </header>
+
+    <main class="admin-shell">
+      <section class="admin-head">
+        <p class="eyebrow">Admin</p>
+        <h1>Sales Profile Admin</h1>
+        <p>
+          Update each sales profile, manage which product categories appear on the homepage, and control every content
+          block shown on the personal detail page.
+        </p>
+      </section>
+
+      <section class="admin-layout">
+        <aside>
+          <button id="addPersonBtn" class="primary-btn full">Add Sales Rep</button>
+          <button id="exportBtn" class="secondary-btn full">Export JSON</button>
+          <button id="resetBtn" class="danger-btn full">Reset Sample Data</button>
+          <div id="adminList" class="admin-list"></div>
+        </aside>
+
+        <form id="personForm" class="editor">
+          <section class="editor-panel">
+            <div class="editor-panel-head">
+              <div>
+                <p class="eyebrow">Profile Basics</p>
+                <h2>Identity and Contact</h2>
+              </div>
+            </div>
+            <div class="editor-band">
+              <label>Page Slug<input name="slug" required /></label>
+              <label>Name<input name="name" required /></label>
+              <label>Role<input name="title" required /></label>
+              <label>Phone<input name="phone" required /></label>
+              <label>Email<input name="email" type="email" required /></label>
+              <label>Territory<input name="region" /></label>
+              <label class="editor-span-2">Portrait Path<input name="photo" /></label>
+            </div>
+          </section>
+
+          <section class="editor-panel category-admin">
+            <div class="editor-panel-head">
+              <div>
+                <p class="eyebrow">Homepage Categories</p>
+                <h2>Product Category Control</h2>
+              </div>
+            </div>
+            <label class="editor-span-2">
+              Categories for this sales rep
+              <input name="categoriesCsv" placeholder="CRM Platform, ERP Suite, Automation" />
+            </label>
+            <p class="admin-note">Enter categories separated by commas. These categories appear as homepage filters automatically.</p>
+            <div class="category-admin-grid">
+              <div class="category-admin-box">
+                <strong>This rep will appear under</strong>
+                <div id="selectedCategoryPreview" class="category-preview"></div>
+              </div>
+              <div class="category-admin-box">
+                <strong>All homepage categories</strong>
+                <div id="allCategoryPreview" class="category-preview"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="editor-panel">
+            <div class="editor-panel-head">
+              <div>
+                <p class="eyebrow">Profile Summary</p>
+                <h2>Top-of-page Messaging</h2>
+              </div>
+            </div>
+            <div class="editor-band">
+              <label class="editor-span-2">Intro Summary<textarea name="bio" rows="4"></textarea></label>
+              <label class="editor-span-2">Lead Statement<textarea name="detailHeadline" rows="4"></textarea></label>
+            </div>
+          </section>
+
+          <section class="module-editor">
+            <div class="module-editor-head">
+              <div>
+                <p class="eyebrow">Page Modules</p>
+                <h2>Content Blocks</h2>
+              </div>
+              <button id="addSectionBtn" class="secondary-btn" type="button">Add Section</button>
+            </div>
+            <div id="sectionEditor" class="section-editor"></div>
+          </section>
+
+          <div class="form-actions">
+            <button class="primary-btn" type="submit">Save Profile</button>
+            <button id="deleteBtn" class="danger-btn" type="button">Delete Rep</button>
+          </div>
+          <p class="admin-note">
+            Homepage filters are generated from the categories shown above. Each homepage QR code and each printed QR
+            card still points to the fixed route <code>/slug</code>.
+          </p>
+        </form>
+      </section>
+    </main>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

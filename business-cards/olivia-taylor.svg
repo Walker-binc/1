@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1180" viewBox="0 0 720 1180">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111214"/>
+      <stop offset="0.55" stop-color="#1b1b1c"/>
+      <stop offset="1" stop-color="#2f6f63"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <rect width="720" height="1180" fill="#ede5d7"/>
+  <rect x="68" y="48" width="584" height="1084" rx="0" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="96" y="82" width="528" height="1016" fill="none" stroke="#caa45d" stroke-width="3"/>
+  <rect x="218" y="128" width="284" height="284" rx="42" fill="#f8f2e7" transform="rotate(45 360 270)"/>
+  <circle cx="360" cy="252" r="84" fill="#efc2a5"/>
+  <path d="M277 256c5-78 45-118 94-116 54 3 86 46 78 124-54-36-105-37-172-8Z" fill="#24201d"/>
+  <path d="M238 438c26-84 70-132 122-132s96 48 122 132H238Z" fill="#1f2630"/>
+  <path d="M300 438l60-124 60 124H300Z" fill="#fff"/>
+  <rect x="238" y="458" width="244" height="52" rx="0" fill="#f6dd93"/>
+  <text x="360" y="493" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#191919">Olivia Taylor</text>
+  <path d="M238 484h-54l26-22-26-22h54Z" fill="#e2c36f"/>
+  <path d="M482 484h54l-26-22 26-22h-54Z" fill="#e2c36f"/>
+  <text x="360" y="610" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#f4df9c">Trusted Advice</text>
+  <text x="360" y="678" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#f4df9c">Local Service</text>
+  <rect x="190" y="724" width="340" height="46" fill="#272522"/>
+  <text x="360" y="755" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#d8c28a">Customer Success Consultant · South Australia</text>
+  <rect x="112" y="828" width="178" height="178" fill="#fff"/>
+  <image x="122" y="838" width="158" height="158" href="data:image/png;base64,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"/>
+  <text x="322" y="878" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#fff">Scan to contact</text>
+  <text x="322" y="918" font-family="Arial, sans-serif" font-size="23" fill="#f4df9c">+61 421 540 778</text>
+  <text x="322" y="954" font-family="Arial, sans-serif" font-size="20" fill="#cfc8b6">olivia.taylor@example.com.au</text>
+  <text x="322" y="990" font-family="Arial, sans-serif" font-size="18" fill="#9fa59d">https://card.company.com/olivia-taylor</text>
+  <text x="360" y="1060" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#caa45d">Company Name Australia</text>
+</svg>

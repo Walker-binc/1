@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>移动端演示说明</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      body {
+        background: var(--bg);
+        padding: 28px;
+      }
+
+      main {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        margin: 0 auto;
+        max-width: 820px;
+        padding: clamp(22px, 5vw, 44px);
+      }
+
+      h1 {
+        font-size: 34px;
+        margin: 0 0 12px;
+      }
+
+      h2 {
+        border-top: 1px solid var(--line);
+        font-size: 22px;
+        margin-top: 28px;
+        padding-top: 24px;
+      }
+
+      li {
+        line-height: 1.9;
+        margin: 4px 0;
+      }
+
+      code {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 2px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Mobile Demo Guide</p>
+      <h1>销售二维码电子名片系统 - 移动端演示包</h1>
+      <p>这个包用于给客户演示“手机扫码后看到销售专属电子名片”的效果。</p>
+
+      <h2>推荐演示方式</h2>
+      <ol>
+        <li>解压 zip 文件。</li>
+        <li>双击 <code>手机扫码演示-双击启动.bat</code>。</li>
+        <li>等电脑浏览器打开“手机扫码查看演示”页面。</li>
+        <li>让手机和电脑连接同一个 Wi-Fi。</li>
+        <li>用手机相机或微信扫描页面上的二维码。</li>
+        <li>手机会打开 Amelia Clarke 的销售电子名片。</li>
+      </ol>
+
+      <h2>演示重点</h2>
+      <ul>
+        <li>手机端页面会自动适配屏幕。</li>
+        <li>客户可直接点击 Call 拨打电话。</li>
+        <li>客户可直接点击 Email 发送邮件。</li>
+        <li>二维码固定指向销售个人页面，后续改电话、邮箱、职位不需要重印二维码。</li>
+        <li>正式上线后地址会变成客户公司自己的子域名，例如 <code>https://card.company.com/amelia-clarke</code>。</li>
+      </ul>
+
+      <h2>如果手机打不开</h2>
+      <ol>
+        <li>确认手机和电脑在同一个 Wi-Fi。</li>
+        <li>确认电脑没有开启过严的防火墙。</li>
+        <li>Windows 如果弹出 Node.js 网络访问提示，请选择允许。</li>
+        <li>也可以直接在手机浏览器输入二维码页面显示的地址。</li>
+      </ol>
+
+      <h2>备注</h2>
+      <p>此包是演示版本，里面的人员、电话、邮箱、Logo 和头像都是占位素材。正式上线前可替换为客户真实销售团队资料和公司品牌素材。</p>
+    </main>
+  </body>
+</html>

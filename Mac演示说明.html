@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mac Demo Guide</title>
+    <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      body {
+        background: var(--bg);
+        padding: 28px;
+      }
+
+      main {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        margin: 0 auto;
+        max-width: 860px;
+        padding: clamp(22px, 5vw, 44px);
+      }
+
+      h1 {
+        font-size: 34px;
+        margin: 0 0 12px;
+      }
+
+      h2 {
+        border-top: 1px solid var(--line);
+        font-size: 22px;
+        margin-top: 28px;
+        padding-top: 24px;
+      }
+
+      li {
+        line-height: 1.9;
+        margin: 4px 0;
+      }
+
+      code {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        padding: 2px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="eyebrow">Mac Demo Guide</p>
+      <h1>Sales Digital Business Cards for Mac</h1>
+      <p>This package is prepared for Mac-based customer demos and includes both the phone QR flow and the full desktop demo flow.</p>
+
+      <h2>Important First Step</h2>
+      <ol>
+        <li>Do not scan QR images directly after unzip.</li>
+        <li>You must start the local demo first so the QR code can point to this Mac's current local address.</li>
+      </ol>
+
+      <h2>Recommended Mobile Demo</h2>
+      <ol>
+        <li>Unzip the package.</li>
+        <li>Double-click <code>Mac-手机扫码演示.command</code>.</li>
+        <li>Wait for the QR page to open in the browser.</li>
+        <li>Make sure the phone is connected to the same Wi-Fi as this Mac.</li>
+        <li>Scan the QR code shown in the browser page.</li>
+      </ol>
+
+      <h2>Full Desktop Demo</h2>
+      <ol>
+        <li>Double-click <code>Mac-完整后台演示.command</code>.</li>
+        <li>The browser will open the main team page.</li>
+        <li>Open the Admin page to edit profile basics, product categories, and page modules.</li>
+      </ol>
+
+      <h2>If the Phone Still Cannot Open the Page</h2>
+      <ol>
+        <li>Turn off VPN on the Mac and test again.</li>
+        <li>Make sure the phone is scanning the new QR code from the browser page, not an older saved image.</li>
+        <li>Try entering the shown local URL manually on the phone.</li>
+      </ol>
+
+      <h2>If macOS Blocks the Command File</h2>
+      <ol>
+        <li>Right-click the <code>.command</code> file and choose Open.</li>
+        <li>If needed, use Terminal and run <code>chmod +x</code> on the command file.</li>
+      </ol>
+    </main>
+  </body>
+</html>

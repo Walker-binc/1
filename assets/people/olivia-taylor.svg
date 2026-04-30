@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760">
+  <rect width="640" height="760" fill="#f4efe2"/>
+  <path d="M116 720c20-148 96-228 204-228s184 80 204 228H116Z" fill="#26342e"/>
+  <circle cx="320" cy="250" r="116" fill="#efc2a5"/>
+  <path d="M198 250c4-112 58-166 128-166 76 0 122 62 118 174-70-54-152-50-246-8Z" fill="#24201d"/>
+  <path d="M216 720 320 500l104 220H216Z" fill="#ffffff"/>
+  <path d="M256 318c42 34 86 34 128 0" fill="none" stroke="#925244" stroke-width="10" stroke-linecap="round"/>
+  <text x="320" y="690" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#caa45d">ZHAO</text>
+</svg>

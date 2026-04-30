@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (location.protocol !== "file:") {
+        document.write('<base href="/">');
+      }
+    </script>
+    <title>Sales Digital Business Cards</title>
+    <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="./">
+        <img src="./assets/logo.svg" alt="Company Logo" />
+        <span>Sales Digital Cards</span>
+      </a>
+      <nav>
+        <a href="#team">Team</a>
+        <a href="./admin.html">Admin</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">card.company.com</p>
+          <h1>Connect each customer with the right product-focused sales contact</h1>
+          <p>
+            Browse by product interest, scan a rep card instantly, and keep every printed QR code valid even when
+            profile content changes later in the admin panel.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-btn" href="#team">Browse Sales Team</a>
+            <a class="secondary-btn" href="./admin.html">Manage Profiles</a>
+          </div>
+        </div>
+        <div class="hero-panel">
+          <img src="./assets/people/amelia-clarke.svg" alt="Sales consultant portrait" />
+          <div>
+            <span>Sample Sales Card</span>
+            <strong>Amelia Clarke</strong>
+            <small>Senior Sales Consultant</small>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="section">
+        <div class="section-head">
+          <p class="eyebrow">Team</p>
+          <h2>Sales Team</h2>
+          <p class="section-copy">Choose a product category first, then scan or open the most relevant sales profile.</p>
+        </div>
+        <div id="categoryFilters" class="category-filters"></div>
+        <div id="teamGrid" class="team-grid"></div>
+      </section>
+    </main>
+
+    <footer>2026 Sales Digital Business Cards. Designed to run on a dedicated subdomain without affecting the main website.</footer>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

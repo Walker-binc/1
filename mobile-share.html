@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (location.protocol !== "file:") {
+        document.write('<base href="/">');
+      }
+    </script>
+    <title>Mobile Demo QR</title>
+    <link rel="icon" href="./assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      body {
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .share-panel {
+        background: var(--paper);
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        max-width: 560px;
+        padding: 28px;
+        text-align: center;
+        width: 100%;
+      }
+
+      .share-panel h1 {
+        font-size: 30px;
+        margin: 8px 0 10px;
+      }
+
+      .share-panel p {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .phone-preview {
+        background: #151719;
+        border: 10px solid #25282c;
+        border-radius: 34px;
+        box-shadow: 0 24px 50px rgba(23, 20, 14, 0.18);
+        margin: 24px auto;
+        max-width: 260px;
+        padding: 18px;
+      }
+
+      .phone-preview canvas {
+        background: #fff;
+        border: 10px solid #fff;
+        width: 100%;
+      }
+
+      .url-box {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        color: var(--ink);
+        font-weight: 800;
+        overflow-wrap: anywhere;
+        padding: 12px;
+      }
+
+      .tips {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="share-panel">
+      <p class="eyebrow">Mobile Demo</p>
+      <h1>Scan This Live QR</h1>
+      <p>Run the local demo first, then scan this QR code with a phone on the same Wi-Fi or hotspot.</p>
+      <div class="phone-preview">
+        <canvas id="mobileQr" width="220" height="220"></canvas>
+      </div>
+      <div id="mobileUrl" class="url-box"></div>
+      <div class="tips">
+        <p>If the phone still cannot open the page, check the following:</p>
+        <p>1. The phone and computer are on the same Wi-Fi or hotspot.</p>
+        <p>2. Scan this page after the demo command has started the local server.</p>
+        <p>3. Do not scan an older saved QR image from a previous machine or session.</p>
+      </div>
+      <div class="hero-actions" style="justify-content:center;">
+        <a class="primary-btn" href="./amelia-clarke">Open Sales Page on This Computer</a>
+      </div>
+    </main>
+
+    <script src="./vendor/qrious.min.js"></script>
+    <script src="./mobile-url.js"></script>
+    <script>
+      const fallback = `${location.origin}/amelia-clarke`;
+      const url = window.MOBILE_DEMO_URL || fallback;
+      document.getElementById("mobileUrl").textContent = url;
+      new QRious({
+        element: document.getElementById("mobileQr"),
+        value: url,
+        size: 220,
+        padding: 8,
+        foreground: "#111111",
+        background: "#ffffff"
+      });
+    </script>
+  </body>
+</html>

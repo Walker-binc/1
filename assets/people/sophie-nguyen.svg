@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760">
+  <rect width="640" height="760" fill="#f5eadf"/>
+  <path d="M118 720c18-146 94-226 202-226s184 80 202 226H118Z" fill="#17202a"/>
+  <circle cx="320" cy="250" r="118" fill="#efc4a5"/>
+  <path d="M198 250c-2-112 56-170 126-170s128 60 120 178c-58-50-158-54-246-8Z" fill="#2a2525"/>
+  <path d="M215 720 320 500l105 220H215Z" fill="#ffffff"/>
+  <path d="M256 318c43 34 85 34 128 0" fill="none" stroke="#925244" stroke-width="10" stroke-linecap="round"/>
+  <text x="320" y="690" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#caa45d">WANG</text>
+</svg>

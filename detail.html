@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      if (location.protocol !== "file:") {
+        document.write('<base href="/">');
+      }
+    </script>
+    <title>Detailed Profile</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar compact">
+      <a class="brand" href="./">
+        <img src="./assets/logo.svg" alt="Company Logo" />
+        <span>Sales Digital Cards</span>
+      </a>
+      <nav>
+        <a href="./">Team</a>
+        <a href="./admin.html">Admin</a>
+      </nav>
+    </header>
+
+    <main id="detailPage" class="detail-shell"></main>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

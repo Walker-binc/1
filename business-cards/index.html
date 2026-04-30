@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Printable QR Business Cards</title>
+    <link rel="icon" href="../assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      main { padding: 40px clamp(18px, 6vw, 88px); }
+      .cards-index { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
+      .cards-index a { background: var(--paper); border: 1px solid var(--line); border-radius: 8px; padding: 14px; }
+      .cards-index img { width: 100%; border-radius: 6px; }
+      .cards-index strong { display: block; margin-top: 10px; }
+    </style>
+  </head>
+  <body>
+    <header class="topbar compact">
+      <a class="brand" href="../">
+        <img src="../assets/logo.svg" alt="Company Logo" />
+        <span>Sales Digital Cards</span>
+      </a>
+      <nav><a href="../">Team</a><a href="../admin.html">Admin</a></nav>
+    </header>
+    <main>
+      <p class="eyebrow">Printable Assets</p>
+      <h1>QR Business Cards</h1>
+      <div id="cardLinks" class="cards-index"></div>
+    </main>
+    <script src="../data.js"></script>
+    <script>
+      async function loadPeople() {
+        try {
+          const response = await fetch("../api/people", { cache: "no-store" });
+          if (response.ok) return await response.json();
+        } catch {}
+        return window.DEFAULT_SALES;
+      }
+      const links = document.getElementById("cardLinks");
+      loadPeople().then((people) => {
+        links.innerHTML = people.map((person) => `
+        <a href="./${person.slug}.svg">
+          <img src="./${person.slug}.svg" alt="${person.name} QR business card" />
+          <strong>${person.name}</strong>
+        </a>
+        `).join("");
+      });
+    </script>
+  </body>
+</html>

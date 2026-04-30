@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760">
+  <rect width="640" height="760" fill="#e9f1ef"/>
+  <path d="M112 720c24-142 96-224 208-224s184 82 208 224H112Z" fill="#203d38"/>
+  <circle cx="320" cy="250" r="116" fill="#eabf9d"/>
+  <path d="M206 238c24-104 88-150 169-118 45 18 72 64 62 132-72-42-142-46-231-14Z" fill="#181818"/>
+  <path d="M235 720 320 510l85 210H235Z" fill="#ffffff"/>
+  <path d="M258 318c42 28 82 28 124 0" fill="none" stroke="#8e4f40" stroke-width="10" stroke-linecap="round"/>
+  <text x="320" y="690" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#caa45d">LI</text>
+</svg>

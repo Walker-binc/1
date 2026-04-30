@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1180" viewBox="0 0 720 1180">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111214"/>
+      <stop offset="0.55" stop-color="#1b1b1c"/>
+      <stop offset="1" stop-color="#2f6f63"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <rect width="720" height="1180" fill="#ede5d7"/>
+  <rect x="68" y="48" width="584" height="1084" rx="0" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="96" y="82" width="528" height="1016" fill="none" stroke="#caa45d" stroke-width="3"/>
+  <rect x="218" y="128" width="284" height="284" rx="42" fill="#f8f2e7" transform="rotate(45 360 270)"/>
+  <circle cx="360" cy="252" r="84" fill="#efc2a5"/>
+  <path d="M277 256c5-78 45-118 94-116 54 3 86 46 78 124-54-36-105-37-172-8Z" fill="#24201d"/>
+  <path d="M238 438c26-84 70-132 122-132s96 48 122 132H238Z" fill="#1f2630"/>
+  <path d="M300 438l60-124 60 124H300Z" fill="#fff"/>
+  <rect x="238" y="458" width="244" height="52" rx="0" fill="#f6dd93"/>
+  <text x="360" y="493" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#191919">Amelia Clarke</text>
+  <path d="M238 484h-54l26-22-26-22h54Z" fill="#e2c36f"/>
+  <path d="M482 484h54l-26-22 26-22h-54Z" fill="#e2c36f"/>
+  <text x="360" y="610" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#f4df9c">Trusted Advice</text>
+  <text x="360" y="678" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#f4df9c">Local Service</text>
+  <rect x="190" y="724" width="340" height="46" fill="#272522"/>
+  <text x="360" y="755" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#d8c28a">Senior Sales Consultant · New South Wales</text>
+  <rect x="112" y="828" width="178" height="178" fill="#fff"/>
+  <image x="122" y="838" width="158" height="158" href="data:image/png;base64,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"/>
+  <text x="322" y="878" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#fff">Scan to contact</text>
+  <text x="322" y="918" font-family="Arial, sans-serif" font-size="23" fill="#f4df9c">+61 412 345 890</text>
+  <text x="322" y="954" font-family="Arial, sans-serif" font-size="20" fill="#cfc8b6">amelia.clarke@example.com.au</text>
+  <text x="322" y="990" font-family="Arial, sans-serif" font-size="18" fill="#9fa59d">https://card.company.com/amelia-clarke</text>
+  <text x="360" y="1060" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#caa45d">Company Name Australia</text>
+</svg>

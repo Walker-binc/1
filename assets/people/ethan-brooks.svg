@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="760" viewBox="0 0 640 760">
+  <rect width="640" height="760" fill="#edf0f4"/>
+  <path d="M110 720c25-150 94-232 210-232s185 82 210 232H110Z" fill="#243042"/>
+  <circle cx="320" cy="252" r="114" fill="#edbe9e"/>
+  <path d="M210 245c8-86 58-140 130-140 67 0 105 48 96 134-74-34-144-42-226 6Z" fill="#1f1b18"/>
+  <path d="M240 720 320 510l80 210H240Z" fill="#ffffff"/>
+  <path d="M258 318c44 30 80 30 124 0" fill="none" stroke="#8c4d3d" stroke-width="10" stroke-linecap="round"/>
+  <text x="320" y="690" text-anchor="middle" font-family="Arial" font-size="34" font-weight="700" fill="#caa45d">CHEN</text>
+</svg>

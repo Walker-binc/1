@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1180" viewBox="0 0 720 1180">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#111214"/>
+      <stop offset="0.55" stop-color="#1b1b1c"/>
+      <stop offset="1" stop-color="#2f6f63"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000" flood-opacity=".32"/>
+    </filter>
+  </defs>
+  <rect width="720" height="1180" fill="#ede5d7"/>
+  <rect x="68" y="48" width="584" height="1084" rx="0" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="96" y="82" width="528" height="1016" fill="none" stroke="#caa45d" stroke-width="3"/>
+  <rect x="218" y="128" width="284" height="284" rx="42" fill="#f8f2e7" transform="rotate(45 360 270)"/>
+  <circle cx="360" cy="252" r="84" fill="#efc2a5"/>
+  <path d="M277 256c5-78 45-118 94-116 54 3 86 46 78 124-54-36-105-37-172-8Z" fill="#24201d"/>
+  <path d="M238 438c26-84 70-132 122-132s96 48 122 132H238Z" fill="#1f2630"/>
+  <path d="M300 438l60-124 60 124H300Z" fill="#fff"/>
+  <rect x="238" y="458" width="244" height="52" rx="0" fill="#f6dd93"/>
+  <text x="360" y="493" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#191919">Jack Wilson</text>
+  <path d="M238 484h-54l26-22-26-22h54Z" fill="#e2c36f"/>
+  <path d="M482 484h54l-26-22 26-22h-54Z" fill="#e2c36f"/>
+  <text x="360" y="610" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#f4df9c">Trusted Advice</text>
+  <text x="360" y="678" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="700" fill="#f4df9c">Local Service</text>
+  <rect x="190" y="724" width="340" height="46" fill="#272522"/>
+  <text x="360" y="755" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#d8c28a">Channel Sales Manager · Victoria</text>
+  <rect x="112" y="828" width="178" height="178" fill="#fff"/>
+  <image x="122" y="838" width="158" height="158" href="data:image/png;base64,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"/>
+  <text x="322" y="878" font-family="Arial, sans-serif" font-size="25" font-weight="700" fill="#fff">Scan to contact</text>
+  <text x="322" y="918" font-family="Arial, sans-serif" font-size="23" fill="#f4df9c">+61 418 220 136</text>
+  <text x="322" y="954" font-family="Arial, sans-serif" font-size="20" fill="#cfc8b6">jack.wilson@example.com.au</text>
+  <text x="322" y="990" font-family="Arial, sans-serif" font-size="18" fill="#9fa59d">https://card.company.com/jack-wilson</text>
+  <text x="360" y="1060" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" fill="#caa45d">Company Name Australia</text>
+</svg>

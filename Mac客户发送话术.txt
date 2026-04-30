@@ -1,0 +1,23 @@
+Hello,
+
+Please find the latest Mac demo package for the Sales Digital Business Cards system.
+
+Recommended way to open:
+1. Unzip the package.
+2. Double-click `Mac-手机扫码演示.command`.
+3. A browser page with a live QR code will open.
+4. Connect the phone to the same Wi-Fi as the Mac.
+5. Scan the QR code shown in the browser page.
+
+Important:
+- Please do not scan QR images directly after unzip.
+- The local demo must be started first so the QR code can point to this Mac's current local address.
+
+This version regenerates the QR business cards for the Mac's current local address, so the phone should open the local demo page directly.
+
+If the phone still cannot open the page:
+- Turn off VPN on the Mac and try again.
+- Make sure you are scanning the new QR code from the browser page, not an older saved image.
+- Try typing the shown local URL directly into the phone browser.
+
+If macOS blocks the `.command` file, please right-click it and choose Open.
