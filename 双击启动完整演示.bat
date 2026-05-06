@@ -48,7 +48,7 @@ echo Demo home page:
 echo http://localhost:4173/
 echo.
 echo Phone-scan QR target:
-echo %CARD_BASE_URL%/amelia-clarke
+echo %CARD_BASE_URL%/r/amelia-clarke
 echo.
 echo Keep this window open while presenting.
 echo Closing this window will stop the demo service.

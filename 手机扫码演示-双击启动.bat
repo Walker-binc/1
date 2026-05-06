@@ -39,7 +39,7 @@ if not defined LOCAL_IP (
 )
 
 set "CARD_BASE_URL=http://%LOCAL_IP%:4173"
-set "MOBILE_URL=%CARD_BASE_URL%/amelia-clarke"
+set "MOBILE_URL=%CARD_BASE_URL%/r/amelia-clarke"
 
 echo window.MOBILE_DEMO_URL = "%MOBILE_URL%";> mobile-url.js
 call npm run cards >nul 2>nul
