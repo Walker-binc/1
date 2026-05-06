@@ -4,6 +4,8 @@
   const addSectionBtn = document.getElementById("addSectionBtn");
   const selectedCategoryPreview = document.getElementById("selectedCategoryPreview");
   const allCategoryPreview = document.getElementById("allCategoryPreview");
+  const statsSummary = document.getElementById("statsSummary");
+  const statsTable = document.getElementById("statsTable");
   const people = normalisePeople(await loadPeople());
   let activeCategory = "All Products";
 
@@ -81,6 +83,13 @@
     return `./${encodeURIComponent(person.slug)}`;
   }
 
+  function trackedProfileHref(person) {
+    if (location.protocol === "file:") {
+      return profileHref(person);
+    }
+    return `./r/${encodeURIComponent(person.slug)}`;
+  }
+
   function qrImageSrc(person) {
     if (location.protocol === "file:") {
       return "";
@@ -156,7 +165,7 @@
           </div>
         </a>
         <div class="sales-card-qr-row">
-          <a class="sales-qr-link" href="${profileHref(person)}">${qr}</a>
+          <a class="sales-qr-link" href="${trackedProfileHref(person)}">${qr}</a>
           <p>Scan or click to open this sales profile.</p>
         </div>
       </article>
@@ -212,7 +221,7 @@
     const categoryTags = person.categories.length
       ? person.categories.map((category) => `<span class="profile-tag">${escapeHtml(category)}</span>`).join("")
       : `<span class="profile-tag">General Enquiries</span>`;
-    document.title = `${person.name} · Sales Digital Business Card`;
+    document.title = `${person.name} | Sales Digital Business Card`;
     target.innerHTML = `
       <section class="profile-layout">
         <aside class="profile-sidebar">
@@ -227,12 +236,12 @@
             <div class="profile-tag-row">${categoryTags}</div>
             <p class="detail-lead-inline">${escapeHtml(lead)}</p>
             <div class="contact-row">
-              <a class="primary-btn" href="${telHref(person.phone)}">Call</a>
-              <a class="secondary-btn" href="${mailHref(person.email)}">Email</a>
+              <a class="primary-btn" data-contact-type="call" href="${telHref(person.phone)}">Call</a>
+              <a class="secondary-btn" data-contact-type="email" href="${mailHref(person.email)}">Email</a>
             </div>
             <dl class="contact-list">
-              <div><dt>Phone</dt><dd><a href="${telHref(person.phone)}">${escapeHtml(person.phone)}</a></dd></div>
-              <div><dt>Email</dt><dd><a href="${mailHref(person.email)}">${escapeHtml(person.email)}</a></dd></div>
+              <div><dt>Phone</dt><dd><a data-contact-type="call" href="${telHref(person.phone)}">${escapeHtml(person.phone)}</a></dd></div>
+              <div><dt>Email</dt><dd><a data-contact-type="email" href="${mailHref(person.email)}">${escapeHtml(person.email)}</a></dd></div>
             </dl>
           </div>
         </aside>
@@ -248,6 +257,26 @@
         </section>
       </section>
     `;
+
+    target.querySelectorAll("[data-contact-type]").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (location.protocol === "file:") return;
+        const payload = JSON.stringify({
+          slug: person.slug,
+          type: link.dataset.contactType
+        });
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon("./api/stats/contact", new Blob([payload], { type: "application/json" }));
+          return;
+        }
+        fetch("./api/stats/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: payload,
+          keepalive: true
+        }).catch(() => {});
+      });
+    });
   }
 
   function buildSectionEditorItem(section, index, total) {
@@ -293,6 +322,16 @@
     return list.map((category) => `<span class="sales-tag">${escapeHtml(category)}</span>`).join("");
   }
 
+  function buildStatsSummaryMarkup(totals) {
+    return `
+      <div class="stats-tile"><strong>${totals.scans}</strong><span>Total QR Scans</span></div>
+      <div class="stats-tile"><strong>${totals.contactIntents}</strong><span>Total Contact Intents</span></div>
+      <div class="stats-tile"><strong>${totals.callClicks}</strong><span>Call Clicks</span></div>
+      <div class="stats-tile"><strong>${totals.emailClicks}</strong><span>Email Clicks</span></div>
+      <div class="stats-tile"><strong>${totals.conversionRate}%</strong><span>Overall Conversion Rate</span></div>
+    `;
+  }
+
   function initAdmin() {
     const list = document.getElementById("adminList");
     const form = document.getElementById("personForm");
@@ -305,6 +344,29 @@
           <strong>${person.name}</strong><span>${person.title}</span>
         </button>
       `).join("");
+    };
+
+    const loadStats = async () => {
+      if (!statsSummary || !statsTable || location.protocol === "file:") return;
+      try {
+        const response = await fetch("./api/stats", { cache: "no-store" });
+        if (!response.ok) throw new Error("stats unavailable");
+        const data = await response.json();
+        statsSummary.innerHTML = buildStatsSummaryMarkup(data.totals);
+        statsTable.innerHTML = data.profiles.map((row) => `
+          <tr>
+            <td><strong>${escapeHtml(row.name)}</strong><br /><span>${escapeHtml(row.title)}</span></td>
+            <td>${row.scans}</td>
+            <td>${row.contactIntents}</td>
+            <td>${row.callClicks}</td>
+            <td>${row.emailClicks}</td>
+            <td>${row.conversionRate}%</td>
+          </tr>
+        `).join("");
+      } catch {
+        statsSummary.innerHTML = `<div class="stats-empty">Statistics become available when the app runs through the local or deployed server.</div>`;
+        statsTable.innerHTML = "";
+      }
     };
 
     const fillForm = () => {
@@ -395,6 +457,7 @@
       await savePeople(people);
       renderList();
       fillForm();
+      await loadStats();
     });
 
     document.getElementById("addPersonBtn").addEventListener("click", async () => {
@@ -418,6 +481,7 @@
       await savePeople(people);
       renderList();
       fillForm();
+      await loadStats();
     });
 
     document.getElementById("deleteBtn").addEventListener("click", async () => {
@@ -428,6 +492,7 @@
         await savePeople(people);
         renderList();
         fillForm();
+        await loadStats();
       }
     });
 
@@ -446,8 +511,15 @@
       location.reload();
     });
 
+    document.getElementById("resetStatsBtn")?.addEventListener("click", async () => {
+      if (location.protocol === "file:") return;
+      await fetch("./api/stats/reset", { method: "POST" });
+      await loadStats();
+    });
+
     renderList();
     fillForm();
+    loadStats();
   }
 
   initHome();

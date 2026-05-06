@@ -8,12 +8,42 @@ const app = express();
 const port = process.env.PORT || 4173;
 const root = resolve(".");
 const dataFile = resolve("data/people.json");
+const statsFile = resolve("data/stats.json");
 const configuredBaseUrl = String(process.env.CARD_BASE_URL || "").trim().replace(/\/$/, "");
 
 app.use(express.json({ limit: "1mb" }));
 
 async function readPeople() {
   return JSON.parse(await readFile(dataFile, "utf8"));
+}
+
+async function readStats() {
+  try {
+    return JSON.parse(await readFile(statsFile, "utf8"));
+  } catch {
+    return { profiles: {} };
+  }
+}
+
+async function writeStats(stats) {
+  await writeFile(statsFile, `${JSON.stringify(stats, null, 2)}\n`, "utf8");
+}
+
+function emptyProfileStats() {
+  return {
+    scans: 0,
+    contactIntents: 0,
+    callClicks: 0,
+    emailClicks: 0,
+    lastScanAt: "",
+    lastContactAt: ""
+  };
+}
+
+function ensureProfileStats(stats, slug) {
+  if (!stats.profiles) stats.profiles = {};
+  if (!stats.profiles[slug]) stats.profiles[slug] = emptyProfileStats();
+  return stats.profiles[slug];
 }
 
 function normaliseCategories(categories) {
@@ -72,8 +102,8 @@ function getPreferredLanAddress() {
   return preferred || all[0] || "localhost";
 }
 
-function buildPublicUrl(req, slug) {
-  if (configuredBaseUrl) return `${configuredBaseUrl}/${slug}`;
+function buildPublicBaseUrl(req) {
+  if (configuredBaseUrl) return configuredBaseUrl;
 
   const forwardedProto = req.headers["x-forwarded-proto"];
   const protocol = forwardedProto ? String(forwardedProto).split(",")[0] : req.protocol;
@@ -83,7 +113,55 @@ function buildPublicUrl(req, slug) {
     ? `${getPreferredLanAddress()}${hostPort ? `:${hostPort}` : ""}`
     : host;
 
-  return `${protocol}://${resolvedHost}/${slug}`;
+  return `${protocol}://${resolvedHost}`;
+}
+
+function buildPublicUrl(req, slug) {
+  return `${buildPublicBaseUrl(req)}/${slug}`;
+}
+
+function buildTrackedUrl(req, slug) {
+  return `${buildPublicBaseUrl(req)}/r/${slug}`;
+}
+
+function serialiseStatsForAdmin(people, stats) {
+  const profiles = people.map((person) => {
+    const row = stats.profiles?.[person.slug] || emptyProfileStats();
+    const conversionRate = row.scans > 0
+      ? Number(((row.contactIntents / row.scans) * 100).toFixed(1))
+      : 0;
+
+    return {
+      slug: person.slug,
+      name: person.name,
+      title: person.title,
+      scans: row.scans,
+      contactIntents: row.contactIntents,
+      callClicks: row.callClicks,
+      emailClicks: row.emailClicks,
+      conversionRate,
+      lastScanAt: row.lastScanAt,
+      lastContactAt: row.lastContactAt
+    };
+  });
+
+  const totals = profiles.reduce((acc, row) => {
+    acc.scans += row.scans;
+    acc.contactIntents += row.contactIntents;
+    acc.callClicks += row.callClicks;
+    acc.emailClicks += row.emailClicks;
+    return acc;
+  }, { scans: 0, contactIntents: 0, callClicks: 0, emailClicks: 0 });
+
+  return {
+    totals: {
+      ...totals,
+      conversionRate: totals.scans > 0
+        ? Number(((totals.contactIntents / totals.scans) * 100).toFixed(1))
+        : 0
+    },
+    profiles
+  };
 }
 
 app.get("/api/people", async (_req, res) => {
@@ -99,6 +177,38 @@ app.post("/api/people", async (req, res) => {
   res.json({ ok: true, count: unique.size });
 });
 
+app.get("/api/stats", async (_req, res) => {
+  const [people, stats] = await Promise.all([readPeople(), readStats()]);
+  res.json(serialiseStatsForAdmin(people, stats));
+});
+
+app.post("/api/stats/contact", async (req, res) => {
+  const slug = String(req.body?.slug || "").trim().toLowerCase();
+  const type = String(req.body?.type || "").trim().toLowerCase();
+  if (!slug || !["call", "email"].includes(type)) {
+    return res.status(400).json({ ok: false });
+  }
+
+  const people = await readPeople();
+  if (!people.some((person) => person.slug === slug)) {
+    return res.status(404).json({ ok: false });
+  }
+
+  const stats = await readStats();
+  const profile = ensureProfileStats(stats, slug);
+  profile.contactIntents += 1;
+  profile.lastContactAt = new Date().toISOString();
+  if (type === "call") profile.callClicks += 1;
+  if (type === "email") profile.emailClicks += 1;
+  await writeStats(stats);
+  res.json({ ok: true });
+});
+
+app.post("/api/stats/reset", async (_req, res) => {
+  await writeStats({ profiles: {} });
+  res.json({ ok: true });
+});
+
 app.get("/api/qr/:slug.svg", async (req, res, next) => {
   const { slug } = req.params;
   if (!/^[a-z0-9-]+$/.test(slug)) return next();
@@ -107,7 +217,7 @@ app.get("/api/qr/:slug.svg", async (req, res, next) => {
   const person = people.find((entry) => entry.slug === slug);
   if (!person) return next();
 
-  const svg = await QRCode.toString(buildPublicUrl(req, slug), {
+  const svg = await QRCode.toString(buildTrackedUrl(req, slug), {
     errorCorrectionLevel: "M",
     margin: 2,
     type: "svg",
@@ -118,6 +228,21 @@ app.get("/api/qr/:slug.svg", async (req, res, next) => {
   });
 
   res.type("image/svg+xml").send(svg);
+});
+
+app.get("/r/:slug", async (req, res, next) => {
+  const { slug } = req.params;
+  if (!/^[a-z0-9-]+$/.test(slug)) return next();
+
+  const people = await readPeople();
+  if (!people.some((person) => person.slug === slug)) return next();
+
+  const stats = await readStats();
+  const profile = ensureProfileStats(stats, slug);
+  profile.scans += 1;
+  profile.lastScanAt = new Date().toISOString();
+  await writeStats(stats);
+  res.redirect(`/${slug}?src=qr`);
 });
 
 app.use(express.static(root, { extensions: ["html"] }));

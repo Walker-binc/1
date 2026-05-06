@@ -108,6 +108,36 @@
             <div id="sectionEditor" class="section-editor"></div>
           </section>
 
+          <section class="editor-panel stats-panel">
+            <div class="module-editor-head">
+              <div>
+                <p class="eyebrow">Performance</p>
+                <h2>QR Scan Analytics</h2>
+              </div>
+              <button id="resetStatsBtn" class="secondary-btn" type="button">Reset Stats</button>
+            </div>
+            <p class="admin-note">
+              Conversion rate here means: contact clicks divided by QR scans. It tracks whether the visitor clicked
+              <code>Call</code> or <code>Email</code> after scanning.
+            </p>
+            <div id="statsSummary" class="stats-summary"></div>
+            <div class="stats-table-wrap">
+              <table class="stats-table">
+                <thead>
+                  <tr>
+                    <th>Sales Rep</th>
+                    <th>Scans</th>
+                    <th>Contact Intents</th>
+                    <th>Call Clicks</th>
+                    <th>Email Clicks</th>
+                    <th>Conversion</th>
+                  </tr>
+                </thead>
+                <tbody id="statsTable"></tbody>
+              </table>
+            </div>
+          </section>
+
           <div class="form-actions">
             <button class="primary-btn" type="submit">Save Profile</button>
             <button id="deleteBtn" class="danger-btn" type="button">Delete Rep</button>

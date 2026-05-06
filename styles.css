@@ -647,6 +647,66 @@ textarea {
   min-height: 32px;
 }
 
+.stats-panel {
+  gap: 18px;
+}
+
+.stats-summary {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.stats-tile {
+  background: var(--panel);
+  border: 1px solid rgba(138, 103, 48, 0.12);
+  border-radius: 8px;
+  display: grid;
+  gap: 6px;
+  padding: 16px;
+}
+
+.stats-tile strong {
+  font-size: 28px;
+}
+
+.stats-tile span,
+.stats-empty {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.stats-table-wrap {
+  overflow-x: auto;
+}
+
+.stats-table {
+  border-collapse: collapse;
+  min-width: 760px;
+  width: 100%;
+}
+
+.stats-table th,
+.stats-table td {
+  border-bottom: 1px solid rgba(138, 103, 48, 0.12);
+  padding: 12px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.stats-table th {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.stats-table td span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .module-editor-head {
   align-items: center;
   display: flex;
@@ -717,7 +777,8 @@ footer {
 
   .profile-modules,
   .editor-band,
-  .category-admin-grid {
+  .category-admin-grid,
+  .stats-summary {
     grid-template-columns: 1fr;
   }
 
